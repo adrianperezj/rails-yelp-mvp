@@ -1,14 +1,13 @@
 <div class="container p-3 mx-5 my-3">
   <h1>Reviews</h1>
   <h4><%= @restaurant.name %></h4>
-</div>
 
 <div class="container">
   <div id="reviews">
     <% @reviews.each do |review| %>
       <div class="card rounded shadow p-3 mx-5 my-3">
         <%= render review %>
-        <%= link_to "View review", restaurant_review_path(@restaurant, review), class: 'btn btn-primary ' %>
+        <%= link_to "View reviews", reviews_path(@restaurant, review), class: 'btn btn-primary ' %>
       </div>
     <% end %>
   </div>
