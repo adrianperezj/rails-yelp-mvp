@@ -14,19 +14,21 @@ Restaurant.destroy_all
 
 puts "Creating restaurants..."
 5.times do
-  Restaurant.create(
+  restaurant = Restaurant.create(
     name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.phone_number,
     category: categories.sample
   )
+  20.times do
+    Review.create(
+        rating: rand(0..5),
+        content: Faker::Restaurant.review,
+        restaurant_id: restaurant.id
+      )
+  end
 end
 
-puts "Creating reviews..."
-20.times do
-  Review.create(
-    rating: rand(0..5),
-    content: Faker::Restaurant.review,
-    restaurant_id: rand(1..5)
-  )
-end
+
+
+puts "Finished!"
