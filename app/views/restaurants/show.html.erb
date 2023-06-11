@@ -1,15 +1,24 @@
-<div class="container p-3 mx-3 my-3">
+<div class="container justify-content-center">
   <h1><%= @restaurant.name %></h1>
-</div>
 
-<div class="container p-3 mx-5 my-3">
-  <div id="resaurant p-3 mx-5 my-3">
-    <%= render @restaurant %>
+  <div class="container p-3 mx-5 my-3">
+    <div id="resaurant p-3 mx-5 my-3">
+      <%= render @restaurant %>
+    </div>
   </div>
-</div>
 
-<div class="container p-3 mx-5 my-3">
-  <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: 'btn btn-primary' %>
-  <%= link_to 'Back to list', restaurants_path, class: 'btn btn-primary' %>
-  <%= link_to "View review", restaurant_reviews_path(@restaurant), class: 'btn btn-primary ' %>
+  <div class="container p-3 mx-5 my-3">
+    <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: 'btn btn-secondary' %>
+    <%= link_to 'Back to list', restaurants_path, class: 'btn btn-secondary' %>
+    <%= link_to "Write review", new_restaurant_review_path(@restaurant), class: 'btn btn-primary ' %>
+  </div>
+
+  <p><strong>Reviews</strong></p>
+    <ul class="list-group">
+      <% @restaurant.reviews.each do |review| %>
+        <p class="card col-6 rounded shadow">
+          <li class="list-group-item">Review: <%= review.content %></li>
+          <li class="list-group-item">Rating: <%= review.rating %></li>
+      <% end %>
+    </ul>
 </div>

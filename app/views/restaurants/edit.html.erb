@@ -1,0 +1,18 @@
+<div class="container justify-content-center">
+  <h1>Edit <%= @restaurant.name %> info</h1>
+
+    <div class="container p-3 mx-5 my-3">
+    <%= link_to 'Back to restaurant', edit_restaurant_path(@restaurant), class: 'btn btn-secondary' %>
+  </div>
+
+  <div class="container p-3 mx-5 my-3">
+  <%= simple_form_for @restaurant do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category, collection: %w(chinese italian japanese french belgian) %>
+    <%= f.button :submit, class: 'btn btn-secondary' %>
+  <% end %>
+</div>
+
+</div>

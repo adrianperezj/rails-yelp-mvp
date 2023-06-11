@@ -15,9 +15,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    set_restaurant
     @review = Review.create(review_params)
     if @review.save
-      redirect_to restaurant_review_path(@review)
+      redirect_to restaurant_path(@restaurant)
     else
       render :new, status: :unprocessable_entity
     end

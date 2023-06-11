@@ -3,7 +3,7 @@
     <h1>Restaurants</h1>
   </div>
   <div class="container p-3 mx-3 mx-5">
-    <%= link_to "New restaurant", new_restaurant_path, class: 'btn btn-primary' %>
+    <%= link_to "New restaurant", new_restaurant_path, class: 'btn btn-secondary' %>
   </div>
 </div>
 
@@ -12,7 +12,7 @@
     <% @restaurants.each do |restaurant| %>
       <div class="card col-6 rounded shadow p-3 mx-5 my-3">
         <%= render restaurant %>
-        <%= link_to "View restaurant", restaurant_path(restaurant), class: 'btn btn-primary ' %>
+        <%= link_to "View restaurant", restaurant_path(restaurant), class: 'btn btn-secondary ' %>
       </div>
     <% end %>
   </div>
