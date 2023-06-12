@@ -15,8 +15,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    set_restaurant
-    @review = Review.create(review_params)
+    @review = Review.new(review_params)
+    @review.restaurant = @restaurant # this is the line that makes the association between the review and restaurant
     if @review.save
       redirect_to restaurant_path(@restaurant)
     else
@@ -46,7 +46,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:content, :rating, :restaurant_id)
+    params.require(:review).permit(:content, :rating)
   end
 
 end
